@@ -15,7 +15,7 @@ Cabinet.initColumn = function () {
     return [
         {field: 'selectItem', radio: true},
         {title: 'id', field: 'id', visible: false, align: 'center', valign: 'middle'},
-        {title: '密码柜编码', field: 'cabinetCode', align: 'center', valign: 'middle', sortable: true},
+        {title: '智能工具柜编码', field: 'cabinetCode', align: 'center', valign: 'middle', sortable: true},
         {title: '柜门编码', field: 'doorCode', align: 'center', valign: 'middle', sortable: true},
         {title: '柜门状态', field: 'locker', align: 'center', valign: 'middle', sortable: true},
         {title: '工具箱编码', field: 'boxCode', align: 'center', valign: 'middle'},
