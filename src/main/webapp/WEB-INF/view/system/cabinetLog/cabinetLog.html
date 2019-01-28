@@ -1,0 +1,29 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>智能柜交易记录</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-2">
+                               <#SelectCon id="cabinetCode" name="智能柜编码" >
+                                   <option value="">全部</option>
+                               </#SelectCon>
+                            </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="CabinetLog.search()"/>
+                            </div>
+                        </div>                        
+                        <#table id="CabinetLogTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/system/cabinetLog/cabinetLog.js"></script>
+@}

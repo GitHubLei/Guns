@@ -15,11 +15,16 @@
  */
 package cn.stylefeng.guns;
 
+import cn.stylefeng.guns.modular.system.SocketServer;
 import cn.stylefeng.roses.core.config.WebAutoConfiguration;
+
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 /**
  * SpringBoot方式启动类
@@ -33,7 +38,17 @@ public class GunsApplication {
     private final static Logger logger = LoggerFactory.getLogger(GunsApplication.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(GunsApplication.class, args);
+    	ApplicationContext applicationContext = SpringApplication.run(GunsApplication.class, args);
         logger.info("GunsApplication is success!");
+        SpringContextUtil.setApplicationContext(applicationContext);
+        SocketServer SocketServer = new SocketServer();
+        try
+        {
+          SocketServer.startServer(5678);
+        }
+        catch (IOException e)
+        {
+          e.printStackTrace();
+        }
     }
 }

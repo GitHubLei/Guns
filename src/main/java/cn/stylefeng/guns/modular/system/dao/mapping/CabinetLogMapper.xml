@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.system.dao.CabinetLogMapper">
+
+    <!-- 閫氱敤鏌ヨ鏄犲皠缁撴灉 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.system.model.CabinetLog">
+        <id column="id" property="id" />
+        <result column="cabinet_code" property="cabinetCode" />
+        <result column="door_code" property="doorCode" />
+        <result column="box_code" property="boxCode" />
+        <result column="operate" property="operate" />
+        <result column="operate_time" property="operateTime" />
+        <result column="ext_remark" property="extRemark" />
+    </resultMap>
+
+    <!-- 閫氱敤鏌ヨ缁撴灉鍒� -->
+    <sql id="Base_Column_List">
+        id, cabinet_code, door_code, box_code, operate, operate_time, ext_remark
+    </sql>
+	
+	<select id="list" resultMap="BaseResultMap" parameterType="com.baomidou.mybatisplus.plugins.Page">
+		select *
+		from cabinet_log where 1 = 1 
+		<if test="cabinetCode != null and cabinetCode !=''">
+			and cabinet_code = #{cabinetCode}
+		</if> order by id desc
+	</select>
+</mapper>
